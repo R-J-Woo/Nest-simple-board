@@ -50,4 +50,13 @@ export class BoardService {
             ...data
         })
     }
+
+    async delete(id: number) {
+        const board = await this.boardRepository.findOneBy({id});
+        if (!board) {
+            throw new HttpException('NotFound', HttpStatus.NOT_FOUND);
+        }
+
+        return this.boardRepository.remove(board);
+    }
 }
