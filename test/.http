@@ -17,3 +17,13 @@ Content-Type: application/json
     "name": "testuser1의 게시글1",
     "contents": "게시글1의 내용"
 }
+
+###
+
+# 게시글 수정하기
+PUT http://localhost:3000/board/1
+Content-Type: application/json
+
+{
+    "contents": "게시글1의 내용 수정"
+}

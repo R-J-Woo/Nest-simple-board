@@ -40,7 +40,14 @@ export class BoardService {
         return this.boardRepository.save(data);
     }
 
-    update(id: number, data: UpdateBoardDto) {
-        return 'update';
+    async update(id: number, data: UpdateBoardDto) {
+        const board = await this.boardRepository.findOneBy({id});
+        if (!board) {
+            throw new HttpException('NotFound', HttpStatus.NOT_FOUND);
+        }
+
+        return this.boardRepository.update(id, {
+            ...data
+        })
     }
 }

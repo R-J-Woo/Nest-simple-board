@@ -33,7 +33,7 @@ export class BoardController {
         @Param('id', ParseIntPipe) id: number,
         @Body(new ValidationPipe()) data: UpdateBoardDto
     ) {
-        return `update ${id}`;
+        return this.boardService.update(id, data);
     }
 
     @Delete(':id')
