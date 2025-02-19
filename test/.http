@@ -5,3 +5,15 @@ GET http://localhost:3000/board
 
 # 게시글 하나 가져오기
 GET http://localhost:3000/board/1
+
+###
+
+# 게시글 생성하기
+POST http://localhost:3000/board
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "name": "testuser1의 게시글1",
+    "contents": "게시글1의 내용"
+}

@@ -25,7 +25,7 @@ export class BoardController {
     create(
         @Body(new ValidationPipe()) data: CreateBoardDto
     ) {
-        return 'create';
+        return this.boardService.create(data);
     }
 
     @Put(':id')

@@ -36,8 +36,8 @@ export class BoardService {
         return board;
     }
  
-    create(data: CreateBoardDto) {
-        return 'create';
+    async create(data: CreateBoardDto) {
+        return this.boardRepository.save(data);
     }
 
     update(id: number, data: UpdateBoardDto) {
